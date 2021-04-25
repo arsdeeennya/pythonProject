@@ -1,5 +1,4 @@
 from django.db import models
-from django.conf import settings
 
 class Bbs(models.Model):
     name = models.CharField(max_length=20, default='森のくまさん')
