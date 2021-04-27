@@ -1,10 +1,8 @@
-from django.urls import path,include
-from rest_framework.routers import DefaultRouter
+from django.urls import path
+from bbs import views
 
 app_name = 'bbs'
 
-router = DefaultRouter()
-
 urlpatterns = [
-    path('', include(router.urls))
+    path('index/', views.BbsListCreate.as_view(), name='index'),
 ]
