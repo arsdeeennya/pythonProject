@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1];
 
 export default function App() {
   const classes = useStyles();
@@ -71,7 +71,7 @@ export default function App() {
         <Toolbar>
           <CameraIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            Home
           </Typography>
         </Toolbar>
       </AppBar>
@@ -80,23 +80,16 @@ export default function App() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
+              海外移住ちゃんねる
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+              外国ってどうなんだろうと思う人たちが<br></br>好きなことを好きなだけ話し合える場所です。      
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
+                    スレッドを作る
                   </Button>
                 </Grid>
               </Grid>
@@ -116,18 +109,18 @@ export default function App() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      タイトル
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      一人目のメッセージ
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      View
+                      開く
                     </Button>
                     <Button size="small" color="primary">
-                      Edit
+                      いいね
                     </Button>
                   </CardActions>
                 </Card>
@@ -139,10 +132,11 @@ export default function App() {
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          海外移住ちゃんねる
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
+          ご利用は利用者各位のご判断にお任せしています｜
+          コンテンツの無断複写、転載を禁じます。
         </Typography>
         <Copyright />
       </footer>
