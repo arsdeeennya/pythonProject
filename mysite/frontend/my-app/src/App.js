@@ -62,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
   white: {
     color: grey[50],
   },
+  textDecorationNone: {
+    textDecoration: 'none',
+  },
 }));
 
 const cards = [1];
@@ -75,7 +78,7 @@ export default function App() {
       <AppBar position="relative">
         <Toolbar>
           <CameraIcon className={classes.icon} />
-          <LinkRouter to="/">
+          <LinkRouter to="/" className={classes.textDecorationNone}>
             <Button size="small" color="default">
               <Typography variant="h6" noWrap className={classes.white}>
                 HOME
@@ -125,7 +128,7 @@ export default function App() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <LinkRouter to="/bbs">
+                    <LinkRouter to="/bbs" className={classes.textDecorationNone}>
                       <Button size="small" color="primary">
                         開く
                       </Button>
