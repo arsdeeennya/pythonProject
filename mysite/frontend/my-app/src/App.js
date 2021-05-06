@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import { Link as LinkRouter } from 'react-router-dom';
+import grey from '@material-ui/core/colors/grey';
 
 function Copyright() {
   return (
@@ -58,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  white: {
+    color: grey[50],
+  },
 }));
 
 const cards = [1];
@@ -73,7 +77,7 @@ export default function App() {
           <CameraIcon className={classes.icon} />
           <LinkRouter to="/">
             <Button size="small" color="default">
-              <Typography variant="h6" color="inherit" noWrap>
+              <Typography variant="h6" noWrap className={classes.white}>
                 HOME
               </Typography>
             </Button>
