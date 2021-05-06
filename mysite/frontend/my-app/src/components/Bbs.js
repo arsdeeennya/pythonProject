@@ -81,26 +81,6 @@ export default function App() {
         </Toolbar>
       </AppBar>
       <main>
-        {/* Hero unit */}
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              海外移住ちゃんねる
-            </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              外国ってどうなんだろうと思う人たちが<br></br>好きなことを好きなだけ話し合える場所です。      
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    スレッドを作る
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
-          </Container>
-        </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
