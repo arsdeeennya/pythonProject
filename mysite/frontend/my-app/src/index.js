@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Bbs from "./components/Bbs";
 import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter } from "react-router-dom";
 
@@ -9,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>　
         <Route exact path="/" component={App} />
-        <Route exact path="/bbs" component={App} />
+        <Route exact path="/bbs" component={Bbs} />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
