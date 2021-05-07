@@ -1,32 +1,14 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import { Link as LinkRouter } from 'react-router-dom';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -67,19 +49,6 @@ export default function App() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <LinkRouter to="/">
-            <Button size="small" color="default">
-              <Typography variant="h6" color="inherit" noWrap>
-                HOME
-              </Typography>
-            </Button>
-          </LinkRouter>
-        </Toolbar>
-      </AppBar>
       <main>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
@@ -116,18 +85,6 @@ export default function App() {
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          海外移住ちゃんねる
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          ご利用は利用者各位のご判断にお任せしています｜
-          コンテンツの無断複写、転載を禁じます。
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
     </React.Fragment>
   );
 }
