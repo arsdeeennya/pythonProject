@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import Bbs from './components/Bbs';import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>　
-        <Route exact path="/" component={App} />
-        {/* <Route exact path="/bbs" component={Bbs} /> */}
+      <Header/>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/bbs" component={Bbs} />
+      <Footer/>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
