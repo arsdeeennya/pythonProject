@@ -9,19 +9,20 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link as LinkRouter } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  white: {
-    color: grey[50],
-  },
-  textDecorationNone: {
-    textDecoration: 'none',
-  },
-}));
+const Header =  () => {
 
-export default function Header() {
+  const useStyles = makeStyles((theme) => ({
+    icon: {
+      marginRight: theme.spacing(2),
+    },
+    white: {
+      color: grey[50],
+    },
+    textDecorationNone: {
+      textDecoration: 'none',
+    },
+  }));
+
   const classes = useStyles();
 
   return (
@@ -42,3 +43,5 @@ export default function Header() {
     </React.Fragment>
   );
 }
+
+export default Header;
