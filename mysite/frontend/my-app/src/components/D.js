@@ -14,6 +14,11 @@ export const D = () => {
       setTodoText('')
     }
   }
+  const onClickDelete = (index) => {
+    const newTodos = [...imcomplate]
+    newTodos.splice(index, 1)
+    setimcomplate(newTodos)
+  }
 
 
   return (
@@ -25,12 +30,12 @@ export const D = () => {
       <div className='incomplete-area'>
         <p className='title'>未完了のTODO</p>
         <ul>
-          {imcomplate.map((todo) => {
+          {imcomplate.map((todo, index) => {
             return(
               <div key='todo' className='list-row'>
                 <li>{todo}</li>
                 <button>完了</button>
-                <button>削除</button>
+                <button onClick={() => onClickDelete(index)}>削除</button>
               </div>
             )
           })}
