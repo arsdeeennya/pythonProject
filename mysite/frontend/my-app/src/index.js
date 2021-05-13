@@ -4,7 +4,9 @@ import './index.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
-import Bbs from './components/Bbs';import reportWebVitals from './reportWebVitals';
+import Bbs from './components/Bbs';
+import {D} from './components/D';
+import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
@@ -13,6 +15,7 @@ ReactDOM.render(
       <Header/>
         <Route exact path="/" component={Home} />
         <Route exact path="/bbs" component={Bbs} />
+        <Route exact path="/d" component={D} />
       <Footer/>
     </BrowserRouter>
   </React.StrictMode>,
