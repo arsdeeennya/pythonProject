@@ -5,7 +5,7 @@ import axios from "axios";
 const Bbs =  () => {
 
   const users = () => {
-    axios.get('http://127.0.0.1:8000/bbs/index').then((res) => {
+    axios.get('https://jsonplaceholder.typicode.com/users').then((res) => {
       console.log(res)
     })
   }
