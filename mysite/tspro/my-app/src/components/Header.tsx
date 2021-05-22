@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link as LinkRouter } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 
-const Header =  () => {
+const Header: React.FC =  () => {
 
   const useStyles = makeStyles((theme) => ({
     icon: {

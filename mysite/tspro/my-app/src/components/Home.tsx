@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 import { Link as LinkRouter } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 
-const Home =  () => {
+const Home: React.FC =  () => {
 
   const useStyles = makeStyles((theme) => ({
     icon: {

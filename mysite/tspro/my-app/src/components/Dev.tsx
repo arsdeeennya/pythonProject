@@ -9,7 +9,7 @@ type TodoType = {
   completed: boolean;
 }
 
-const Dev =  () => {
+const Dev: React.FC =  () => {
   const [todos, setTodos] = useState<Array<TodoType>>([]);
 
   const users = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import axios from "axios";
 
-const Bbs =  () => {
+const Bbs: React.FC =  () => {
 
   const users = () => {
     axios.get('https://jsonplaceholder.typicode.com/users').then((res) => {
