@@ -13,7 +13,7 @@ const Dev: React.FC =  () => {
   const [todos, setTodos] = useState<Array<TodoType>>([]);
 
   const users = () => {
-    axios.get<Array<TodoType>>('https://jsonplaceholder.typicode.com/todos').then((res) => {
+    axios.get<Array<TodoType>>('http://127.0.0.1:8000/bbs/index/').then((res) => {
       setTodos(res.data)
     })
   }
@@ -24,8 +24,7 @@ const Dev: React.FC =  () => {
         <Container>
           <button onClick={users}>すいっち</button>
           {todos.map((todo) => (
-            <div>
-              
+            <div key={todo.id}>
               <p>タイトル{todo.title}</p>
               <p>ID{todo.userId}</p>
               <p>？？？{todo.id}</p>
