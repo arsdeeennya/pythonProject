@@ -98,7 +98,7 @@ const Home: React.FC =  () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <LinkRouter to="/bbs" className={classes.textDecorationNone}>
+                    <LinkRouter to="/thread" className={classes.textDecorationNone}>
                       <Button size="small" color="primary">
                         開く
                       </Button>

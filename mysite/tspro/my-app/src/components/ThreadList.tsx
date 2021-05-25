@@ -19,7 +19,7 @@ type PostType = {
   week: string;
 }
 
-const Thread: React.FC =  () => {
+const ThreadList: React.FC =  () => {
   const [posts, setPosts] = useState<Array<PostType>>([]);
   const classes = useStyles();
 
@@ -57,4 +57,4 @@ const Thread: React.FC =  () => {
   );
 }
 
-export default Thread;
+export default ThreadList;
