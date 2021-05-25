@@ -25,7 +25,6 @@ const Bbs: React.FC =  () => {
   const [texts, setTexts] = useState('');
   const classes = useStyles();
 
-
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTexts(e.target.value)
   }
