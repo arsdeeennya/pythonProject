@@ -7,7 +7,7 @@ const Post = styled.div`
   font-size: 20px;
   background-color: #ffffff;
   padding: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   border-radius: 5px;
   display: inline-block;
   border-style: none solid solid none;

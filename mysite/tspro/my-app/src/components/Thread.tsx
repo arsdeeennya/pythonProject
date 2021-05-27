@@ -8,11 +8,11 @@ const Main = styled.main`
   background-color: #f2f3f7;
   padding: 70px 0px 100px;
 `
+
 const Thread: React.FC =  () => {
 
   return (
     <React.Fragment>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <Main>
         <Container>
           <ThreadList/>
