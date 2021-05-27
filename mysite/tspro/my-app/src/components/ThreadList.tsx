@@ -2,6 +2,22 @@ import React, {useState, useEffect} from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import axios from "axios";
+import styled from 'styled-components'
+
+const Container = styled(Grid)`
+  font-size: 20px;
+`
+const Post = styled.div`
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+  display: inline-block;
+  border-style: none solid solid none;
+  border-color: #ddd;
+`
+const Message = styled.div`
+  padding: 12px 0px;
+`
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -33,24 +49,25 @@ const ThreadList: React.FC =  () => {
     <React.Fragment>
       <div className={classes.root}>
         {posts.map((post) => (
-          <Grid container spacing={8} key={post.id}>
+          <Container container spacing={1} key={post.id}>
             <Grid item xs={9}>
-              <div className="meta">
-                <span className="number">{post.id}</span>
-                <span className="name">
-                  <b><a href="mailto:sage">{post.name}</a></b>
-                </span>
-                <span className="date">2021/05/24(月) 12:55:00.32</span>
-                <span className="uid">{post.ip}</span>
-              </div>
-              <div className="message">
-                <span className="escaped">{post.message}</span>
-              </div>
+              <Post>
+                <div className="meta">
+                  <span className="number">{post.id}</span>
+                  <span className="name">
+                    <b><a href="mailto:sage">{post.name}</a></b>
+                  </span>
+                  <span className="date">2021/05/24(月) 12:55:00.32</span>
+                  <span className="uid">{post.ip}</span>
+                </div>
+                <Message className="message">
+                  <span className="escaped">{post.message}</span>
+                </Message>
+              </Post>
             </Grid>
             <Grid item xs={3}>
-              {/* なし */}
             </Grid>
-          </Grid>
+          </Container>
         ))}
       </div>
     </React.Fragment>
