@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-
+import CreateIcon from '@material-ui/icons/Create';
 import styled from 'styled-components'
 
 const Responce = styled.div`
-  margin: 90px 250px 0px;
+  margin: 90px 110px 0px;
 `
 const Post = styled.div`
   font-size: 20px;
@@ -18,7 +17,7 @@ const Post = styled.div`
 `
 const Name = styled.input`
   width: 100%;
-  font-size: 140%;
+  font-size: 130%;
   padding: 8px 14px;
   margin-bottom: 15px;
   display: block;
@@ -27,7 +26,7 @@ const Name = styled.input`
 `
 const Comment = styled.textarea`
   width: 100%;
-  font-size: 140%;
+  font-size: 170%;
   padding: 8px 14px;
   margin-bottom: 15px;
   display: block;
@@ -37,6 +36,7 @@ const Comment = styled.textarea`
 
 const Write = styled(Button)`
   float: right;
+  font-size: 20px;
 `
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -57,13 +57,12 @@ const ThreadForm: React.FC =  () => {
   console.log(texts)
   return (
     <React.Fragment>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <Responce>
         <Post>レスを投稿する</Post>
         <form>
           <Name placeholder={'名前(省略可)'} size={70}/>
           <Comment placeholder={'コメント内容'} rows={5} cols={70} value={texts} onChange={handleChange}/>
-          <Write variant="contained" color="primary" className={classes.button} endIcon={<Icon>create</Icon>}>書き込む</Write>
+          <Write variant="contained" color="primary" className={classes.button} endIcon={<CreateIcon/>}>書き込む</Write>
         </form>
       </Responce>
     </React.Fragment>

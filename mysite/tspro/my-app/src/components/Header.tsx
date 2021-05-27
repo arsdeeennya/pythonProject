@@ -1,20 +1,26 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import HomeIcon from '@material-ui/icons/Home';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as LinkRouter } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
+import styled from 'styled-components'
+
+const HomeButton = styled(Button)`
+  color: white;
+  font-size: 20px;
+`
+const Head = styled(AppBar)`
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+`
 
 const Header: React.FC =  () => {
 
   const useStyles = makeStyles((theme) => ({
-    icon: {
-      marginRight: theme.spacing(2),
-    },
     white: {
       color: grey[50],
     },
@@ -27,19 +33,15 @@ const Header: React.FC =  () => {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      <AppBar position="relative">
+      <Head position="relative">
         <Toolbar>
-          <CameraIcon className={classes.icon} />
           <LinkRouter to="/" className={classes.textDecorationNone}>
-            <Button size="small" color="default">
-              <Typography variant="h6" noWrap className={classes.white}>
-                HOME
-              </Typography>
-            </Button>
+            <HomeButton startIcon={<HomeIcon style={{ fontSize: 35 }}/>}>
+              HOME
+            </HomeButton>
           </LinkRouter>
         </Toolbar>
-      </AppBar>
+      </Head>
     </React.Fragment>
   );
 }
