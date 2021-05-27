@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const Main = styled.main`
   background-color: #f2f3f7;
-  padding-top: 30px;
+  padding: 70px 0px 100px;
 `
 const Thread: React.FC =  () => {
 

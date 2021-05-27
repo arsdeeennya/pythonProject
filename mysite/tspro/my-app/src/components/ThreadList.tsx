@@ -10,6 +10,7 @@ const Container = styled(Grid)`
 const Post = styled.div`
   background-color: #ffffff;
   padding: 15px;
+  margin-bottom: 5px;
   border-radius: 5px;
   display: inline-block;
   border-style: none solid solid none;
