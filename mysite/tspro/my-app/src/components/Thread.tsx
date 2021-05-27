@@ -12,6 +12,7 @@ const Thread: React.FC =  () => {
 
   return (
     <React.Fragment>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <Main>
         <Container>
           <ThreadList/>

@@ -2,11 +2,10 @@ import React, {useState} from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-
 import styled from 'styled-components'
 
 const Responce = styled.div`
-  margin: 90px 250px 0px;
+  margin: 90px 110px 0px;
 `
 const Post = styled.div`
   font-size: 20px;
@@ -37,6 +36,7 @@ const Comment = styled.textarea`
 
 const Write = styled(Button)`
   float: right;
+  font-size: 20px;
 `
 
 const useStyles = makeStyles((theme: Theme) =>

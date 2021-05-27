@@ -1,13 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import axios from "axios";
 import styled from 'styled-components'
 
-const Container = styled(Grid)`
-  font-size: 20px;
-`
 const Post = styled.div`
+  font-size: 20px;
   background-color: #ffffff;
   padding: 15px;
   margin-bottom: 5px;
@@ -50,25 +47,19 @@ const ThreadList: React.FC =  () => {
     <React.Fragment>
       <div className={classes.root}>
         {posts.map((post) => (
-          <Container container spacing={1} key={post.id}>
-            <Grid item xs={9}>
-              <Post>
-                <div>
-                  <span>{post.id}</span>
-                  <span>
-                    <b><a href="mailto:sage">{post.name}</a></b>
-                  </span>
-                  <span>2021/05/24(月) 12:55:00.32</span>
-                  <span>{post.ip}</span>
-                </div>
-                <Message>
-                  <span>{post.message}</span>
-                </Message>
-              </Post>
-            </Grid>
-            <Grid item xs={3}>
-            </Grid>
-          </Container>
+          <Post>
+            <div>
+              <span>{post.id}</span>
+              <span>
+                <b><a href="mailto:sage">{post.name}</a></b>
+              </span>
+              <span>2021/05/24(月) 12:55:00.32</span>
+              <span>{post.ip}</span>
+            </div>
+            <Message>
+              <span>{post.message}</span>
+            </Message>
+          </Post>
         ))}
       </div>
     </React.Fragment>
