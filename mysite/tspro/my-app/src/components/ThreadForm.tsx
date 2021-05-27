@@ -63,15 +63,7 @@ const ThreadForm: React.FC =  () => {
         <form>
           <Name placeholder={'名前(省略可)'} size={70}/>
           <Comment placeholder={'コメント内容'} rows={5} cols={70} value={texts} onChange={handleChange}/>
-          <Write
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            endIcon={<Icon>create</Icon>}
-          >
-            書き込む
-          </Write>
-          
+          <Write variant="contained" color="primary" className={classes.button} endIcon={<Icon>create</Icon>}>書き込む</Write>
         </form>
       </Responce>
     </React.Fragment>

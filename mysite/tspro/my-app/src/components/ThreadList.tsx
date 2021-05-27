@@ -53,16 +53,16 @@ const ThreadList: React.FC =  () => {
           <Container container spacing={1} key={post.id}>
             <Grid item xs={9}>
               <Post>
-                <div className="meta">
-                  <span className="number">{post.id}</span>
-                  <span className="name">
+                <div>
+                  <span>{post.id}</span>
+                  <span>
                     <b><a href="mailto:sage">{post.name}</a></b>
                   </span>
-                  <span className="date">2021/05/24(月) 12:55:00.32</span>
-                  <span className="uid">{post.ip}</span>
+                  <span>2021/05/24(月) 12:55:00.32</span>
+                  <span>{post.ip}</span>
                 </div>
-                <Message className="message">
-                  <span className="escaped">{post.message}</span>
+                <Message>
+                  <span>{post.message}</span>
                 </Message>
               </Post>
             </Grid>
