@@ -2,17 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import axios from "axios";
 import styled from 'styled-components'
-import CreateIcon from '@material-ui/icons/Create';
 
-const Createicon = styled(CreateIcon)`
-  float: right;
-  position: sticky;
-  top: 134px;
-  color: #3f51b5;
-  font-size: 25px;
-  border: 3px groove #3f51b5;
-  border-radius: 7px;
-`
 const Post = styled.div`
   font-size: 20px;
   background-color: #ffffff;
@@ -55,7 +45,6 @@ const ThreadList: React.FC =  () => {
 
   return (
     <React.Fragment>
-      <Createicon/>
       <div className={classes.root}>
         {posts.map((post) => (
           <Post>
