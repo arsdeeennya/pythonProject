@@ -38,16 +38,17 @@ const ThreadList: React.FC =  () => {
   const classes = useStyles();
 
   useEffect(() => {
-    axios.get<Array<PostType>>('http://127.0.0.1:8000/bbs/index/').then((res) => {
-    setPosts(res.data)
-    })
+    axios.get<Array<PostType>>('http://127.0.0.1:8000/bbs/index/')
+      .then((res) => {setPosts(res.data)})
+      .catch((res) => {console.log(res)})
   }, []);
 
   return (
     <React.Fragment>
       <div className={classes.root}>
-        {posts.map((post) => (
-          <Post>
+        {posts.map((post, index) => (
+          <div key={index}>
+            <Post>
             <div>
               <span>{post.id}</span>
               <span>
@@ -59,7 +60,8 @@ const ThreadList: React.FC =  () => {
             <Message>
               <span>{post.message}</span>
             </Message>
-          </Post>
+           </Post>
+          </div>
         ))}
       </div>
     </React.Fragment>
