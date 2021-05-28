@@ -7,15 +7,27 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link as LinkRouter } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 import styled from 'styled-components'
+import Modal from "react-modal";
 
-const HomeButton = styled(Button)`
+Modal.setAppElement("#root");
+
+const HeaderButton = styled(Button)`
   color: white;
   font-size: 20px;
+  margin: 0px 10px;
+  border: 3px groove white;
+  border-radius: 11px;
+  background-color: black;
+  &:hover {
+    font-weight: bold;
+    background-color: black;
+  }
 `
 const Head = styled(AppBar)`
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
+  padding: 5px 0px;
 `
 
 const Header: React.FC =  () => {
@@ -36,9 +48,9 @@ const Header: React.FC =  () => {
       <Head position="relative">
         <Toolbar>
           <LinkRouter to="/" className={classes.textDecorationNone}>
-            <HomeButton startIcon={<HomeIcon style={{ fontSize: 35 }}/>}>
-              HOME
-            </HomeButton>
+            <HeaderButton startIcon={<HomeIcon style={{ fontSize: 35 }}/>}>
+              ホーム
+            </HeaderButton>
           </LinkRouter>
         </Toolbar>
       </Head>
