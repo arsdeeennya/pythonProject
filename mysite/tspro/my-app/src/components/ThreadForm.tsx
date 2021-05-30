@@ -74,10 +74,9 @@ const ThreadForm: React.FC =  () => {
     })
     .then(res => {
       console.log(res);
-      console.log(res.data);
     })
     .catch(res => {
-      console.log(post)
+      console.log(res)
     })
   }
 

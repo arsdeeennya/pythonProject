@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 
 const Home: React.FC =  () => {
@@ -98,11 +98,11 @@ const Home: React.FC =  () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <LinkRouter to="/thread" className={classes.textDecorationNone}>
+                    <Link to="/thread" className={classes.textDecorationNone}>
                       <Button size="small" color="primary">
                         開く
                       </Button>
-                    </LinkRouter> 
+                    </Link> 
                     <Button size="small" color="primary">
                       いいね
                     </Button>
