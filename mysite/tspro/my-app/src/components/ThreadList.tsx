@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import axios from "axios";
 import styled from 'styled-components'
 
@@ -17,7 +17,7 @@ const Message = styled.div`
   padding: 12px 0px;
 `
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       flexGrow: 1,
