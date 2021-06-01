@@ -2,9 +2,10 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
+import CommentIcon from '@material-ui/icons/Comment';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 import styled from 'styled-components'
 import Modal from "react-modal";
@@ -47,11 +48,16 @@ const Header: React.FC =  () => {
     <React.Fragment>
       <Head position="relative">
         <Toolbar>
-          <LinkRouter to="/" className={classes.textDecorationNone}>
+          <Link to="/" className={classes.textDecorationNone}>
             <HeaderButton startIcon={<HomeIcon style={{ fontSize: 35 }}/>}>
               ホーム
             </HeaderButton>
-          </LinkRouter>
+          </Link>
+          <Link to="/thread" className={classes.textDecorationNone}>
+            <HeaderButton startIcon={<CommentIcon style={{ fontSize: 35 }}/>}>
+              掲示板
+            </HeaderButton>
+          </Link>
         </Toolbar>
       </Head>
     </React.Fragment>
