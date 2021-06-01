@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 import styled from 'styled-components';
 import { useForm, SubmitHandler } from "react-hook-form";
 
-type Inputs = {
+type FormInputs = {
   name: string,
   message: string,
 };
@@ -91,11 +91,11 @@ const Main = styled.main`
 `
 
 const Thread: React.FC =  () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+  const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>();
 
   const [posts, setPosts] = useState<Array<PostType>>([]);
   
-  const onSubmit: SubmitHandler<Inputs> = data => {
+  const onSubmit: SubmitHandler<FormInputs> = (data: FormInputs, e: any) => {
     if(data.name === ''){
       data.name = '森のくまさん'
     }
@@ -104,7 +104,7 @@ const Thread: React.FC =  () => {
     })
     .then(res => {
       setPosts([...posts,res.data])
-
+      e.target.reset();
     })
     .catch(res => {
       console.log(res)
@@ -145,9 +145,9 @@ const Thread: React.FC =  () => {
             <ResPost>レスを投稿する</ResPost>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Name {...register("name", { maxLength: 20 })} placeholder={'名前(省略可)'} size={70} />
-              {errors.name && <ErrorMsg style={{color: 'deeppink'}}>名前が長すぎます！</ErrorMsg>}
+              {errors.name && <ErrorMsg>名前が長すぎます！</ErrorMsg>}
               <Comment {...register("message", { required: true })} placeholder={'コメント内容'} rows={5} cols={70} />
-              {errors.message && <ErrorMsg style={{color: 'deeppink'}}>本文がありません！</ErrorMsg>}
+              {errors.message && <ErrorMsg>本文がありません！</ErrorMsg>}
               <Write variant="contained" color="primary" className={classes.button} endIcon={<CreateIcon/>} type='submit'>書き込む</Write>
             </form>
           </Responce>
