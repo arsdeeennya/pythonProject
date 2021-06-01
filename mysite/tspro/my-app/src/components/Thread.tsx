@@ -94,8 +94,15 @@ const Thread: React.FC =  () => {
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // レンダリング後にstateが更新されるので、別途変数に代入
+    let newName = name;
+    if(newName === ''){
+      newName = '森のくまさん';
+    }
+
     const post = {
-      name: name,
+      name: newName,
       message: comment
     }
 
