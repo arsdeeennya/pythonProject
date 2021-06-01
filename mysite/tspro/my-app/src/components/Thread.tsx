@@ -4,7 +4,13 @@ import axios from "axios";
 import Button from '@material-ui/core/Button';
 import CreateIcon from '@material-ui/icons/Create';
 import Container from '@material-ui/core/Container';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Inputs = {
+  name: string,
+  message: string,
+};
 
 const Responce = styled.div`
   margin: 90px 110px 0px;
@@ -66,6 +72,11 @@ const Message = styled.div`
   padding: 12px 0px;
 `
 
+const ErrorMsg = styled.span`
+  color: deeppink;
+  font-weight: 700;
+`
+
 type PostType = {
   id: number;
   name: string;
@@ -80,45 +91,25 @@ const Main = styled.main`
 `
 
 const Thread: React.FC =  () => {
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+
   const [posts, setPosts] = useState<Array<PostType>>([]);
-  const [name, setName] = useState('');
-  const [comment, setComment] = useState('');
-
-  const nameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value)
-  }
-
-  const commentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setComment(e.target.value)
-  }
-
-  const submit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // レンダリング後にstateが更新されるので、別途変数に代入
-    let newName = name;
-    if(newName === ''){
-      newName = '森のくまさん';
+  
+  const onSubmit: SubmitHandler<Inputs> = data => {
+    if(data.name === ''){
+      data.name = '森のくまさん'
     }
-
-    const post = {
-      name: newName,
-      message: comment
-    }
-
-    axios.post('http://127.0.0.1:8000/bbs/index/', post,{
+    axios.post('http://127.0.0.1:8000/bbs/index/', data,{
       headers: { "Content-Type": "application/json" },
     })
     .then(res => {
       setPosts([...posts,res.data])
-      setName('')
-      setComment('')
 
     })
     .catch(res => {
       console.log(res)
     })
-  }
+  };
 
   const classes = useStyles();
 
@@ -152,9 +143,11 @@ const Thread: React.FC =  () => {
           </div>
           <Responce>
             <ResPost>レスを投稿する</ResPost>
-            <form onSubmit={submit} >
-              <Name placeholder={'名前(省略可)'} size={70} name="name" value={name} onChange={nameChange}/>
-              <Comment placeholder={'コメント内容'} rows={5} cols={70} name="message" value={comment} onChange={commentChange}/>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Name {...register("name", { maxLength: 20 })} placeholder={'名前(省略可)'} size={70} />
+              {errors.name && <ErrorMsg style={{color: 'deeppink'}}>名前が長すぎます！</ErrorMsg>}
+              <Comment {...register("message", { required: true })} placeholder={'コメント内容'} rows={5} cols={70} />
+              {errors.message && <ErrorMsg style={{color: 'deeppink'}}>本文がありません！</ErrorMsg>}
               <Write variant="contained" color="primary" className={classes.button} endIcon={<CreateIcon/>} type='submit'>書き込む</Write>
             </form>
           </Responce>
