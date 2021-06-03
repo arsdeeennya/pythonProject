@@ -144,10 +144,10 @@ const Thread: React.FC =  () => {
           <Responce>
             <ResPost>レスを投稿する</ResPost>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Name {...register("name", { maxLength: 20 })} placeholder={'名前(省略可)'} size={70} />
               {errors.name && <ErrorMsg>名前が長すぎます！</ErrorMsg>}
-              <Comment {...register("message", { required: true })} placeholder={'コメント内容'} rows={5} cols={70} />
+              <Name {...register("name", { maxLength: 20 })} placeholder={'名前(省略可)'} size={70} />
               {errors.message && <ErrorMsg>本文がありません！</ErrorMsg>}
+              <Comment {...register("message", { required: true })} placeholder={'コメント内容'} rows={5} cols={70} />
               <Write variant="contained" color="primary" className={classes.button} endIcon={<CreateIcon/>} type='submit'>書き込む</Write>
             </form>
           </Responce>
