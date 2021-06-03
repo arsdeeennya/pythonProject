@@ -83,6 +83,7 @@ type PostType = {
   message: string;
   ip: string;
   week: string;
+  created_at: string;
 }
 
 const Main = styled.main`
@@ -127,12 +128,12 @@ const Thread: React.FC =  () => {
               <div key={index}>
                 <Post>
                 <div>
-                  <span>{post.id}</span>
+                  <span>{post.id}.  </span>
                   <span>
-                    <b><a href="mailto:sage">{post.name}</a></b>
+                    <b><a href="mailto:sage">{post.name}</a>  </b>
                   </span>
-                  <span>2021/05/24(月) 12:55:00.32</span>
-                  <span>{post.ip}</span>
+                  <span>{post.created_at}  </span>
+                  <span>ID: {post.ip}</span>
                 </div>
                 <Message>
                   <span>{post.message}</span>
