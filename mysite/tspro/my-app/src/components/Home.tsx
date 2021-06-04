@@ -24,7 +24,7 @@ const Home: React.FC =  () => {
     <React.Fragment>
       <Main>
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+          <Container maxWidth="lg">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
               海外移住ちゃんねる
             </Typography>
