@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CommentIcon from '@material-ui/icons/Comment';
 import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 import styled from 'styled-components'
@@ -15,25 +15,20 @@ import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 Modal.setAppElement("#root");
 
 const drawerWidth = 240;
 
 
-const HeaderButton = styled(Button)`
-  color: white;
+const BbsButton = styled(Button)`
   font-size: 20px;
-  margin: 0px 10px;
-  border: 3px groove white;
-  border-radius: 11px;
-  background-color: black;
-  &:hover {
-    font-weight: bold;
-    background-color: black;
-  }
+  padding: 15px 103px 15px 36px;
+`
+
+const ChatButton = styled(Button)`
+  font-size: 20px;
+  padding: 15px 82px 15px 36px;
 `
 
 const Header: React.FC =  () => {
@@ -44,6 +39,13 @@ const Header: React.FC =  () => {
     },
     textDecorationNone: {
       textDecoration: 'none',
+    },
+    header: {
+      textDecoration: 'none',
+      display: 'block',
+      "&:hover": {
+        backgroundColor: '#f2f3f7',
+      },
     },
     root: {
       display: 'flex',
@@ -81,7 +83,7 @@ const Header: React.FC =  () => {
       padding: theme.spacing(0, 1),
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
-      justifyContent: 'flex-end',
+      justifyContent: 'center',
     },
     content: {
       flexGrow: 1,
@@ -103,7 +105,6 @@ const Header: React.FC =  () => {
 
   const classes = useStyles();
 
-  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [title, setTitle] = React.useState('海外移住ちゃんねる');
 
@@ -116,7 +117,7 @@ const Header: React.FC =  () => {
     setOpen(false);
     setTitle('海外移住ちゃんねる');
   };
-
+  
   return (
     <React.Fragment>
       <AppBar
@@ -143,7 +144,7 @@ const Header: React.FC =  () => {
 
       <Drawer
         className={classes.drawer}
-        variant="temporary"
+        variant="persistent"
         anchor="left"
         transitionDuration={200}
         open={open}
@@ -152,23 +153,23 @@ const Header: React.FC =  () => {
         }}
       >
         <div className={classes.drawerHeader} style={{backgroundColor: '#3f51b5'}}>
+          <IconButton onClick={handleDrawerClose} style={{color: 'white', fontWeight: 'bold'}}>
+            <MenuIcon />
+          </IconButton>
           <Link to="/" className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
             海外移住ちゃんねる
           </Link>
-          <IconButton onClick={handleDrawerClose} style={{color: 'white', fontWeight: 'bold'}}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
         </div>
         <List>
-          <Link to="/thread" className={classes.textDecorationNone}>
-            <HeaderButton startIcon={<CommentIcon style={{ fontSize: 35 }}/>}>
-              掲示板
-            </HeaderButton>
+          <Link to="/thread" className={classes.header}>
+            <BbsButton startIcon={<CommentIcon style={{ fontSize: 35 }}/>}>
+            掲示板
+            </BbsButton>
           </Link>
-          <Link to="/chat" className={classes.textDecorationNone}>
-            <HeaderButton startIcon={<ForumIcon style={{ fontSize: 35 }}/>}>
+          <Link to="/chat" className={classes.header}>
+            <ChatButton startIcon={<ForumIcon style={{ fontSize: 35 }}/>}>
               チャット
-            </HeaderButton>
+            </ChatButton>
           </Link>
         </List>
       </Drawer>

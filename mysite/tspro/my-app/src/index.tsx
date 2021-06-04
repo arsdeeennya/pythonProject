@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Thread from './components/Thread';
+import Dev from './components/Dev';
 import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter } from "react-router-dom";
 
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Header/>
         <Route exact path="/" component={Home} />
         <Route exact path="/thread" component={Thread} />
+        <Route exact path="/dev" component={Dev} />
       <Footer/>
     </BrowserRouter>
   </React.StrictMode>,
