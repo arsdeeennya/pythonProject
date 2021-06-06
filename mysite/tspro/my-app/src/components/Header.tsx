@@ -1,10 +1,9 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import HomeIcon from '@material-ui/icons/Home';
 import CommentIcon from '@material-ui/icons/Comment';
 import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 import styled from 'styled-components'
@@ -14,41 +13,24 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
 Modal.setAppElement("#root");
 
 const drawerWidth = 240;
 
 
-const HeaderButton = styled(Button)`
-  color: white;
+const BbsButton = styled(Button)`
   font-size: 20px;
-  margin: 0px 10px;
-  border: 3px groove white;
-  border-radius: 11px;
-  background-color: black;
-  &:hover {
-    font-weight: bold;
-    background-color: black;
-  }
+  padding: 15px 103px 15px 36px;
 `
-const Head = styled(AppBar)`
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-  padding: 5px 0px;
+
+const ChatButton = styled(Button)`
+  font-size: 20px;
+  padding: 15px 82px 15px 36px;
 `
 
 const Header: React.FC =  () => {
@@ -59,6 +41,13 @@ const Header: React.FC =  () => {
     },
     textDecorationNone: {
       textDecoration: 'none',
+    },
+    header: {
+      textDecoration: 'none',
+      display: 'block',
+      "&:hover": {
+        backgroundColor: '#f2f3f7',
+      },
     },
     root: {
       display: 'flex',
@@ -96,64 +85,34 @@ const Header: React.FC =  () => {
       padding: theme.spacing(0, 1),
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
-      justifyContent: 'flex-end',
-    },
-    content: {
-      flexGrow: 1,
-      padding: theme.spacing(3),
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      marginLeft: -drawerWidth,
+      justifyContent: 'center',
     },
     contentShift: {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
+      backgroundColor: 'white'
     },
   }));
 
   const classes = useStyles();
 
-  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [title, setTitle] = React.useState('海外移住ちゃんねる');
 
   const handleDrawerOpen = () => {
     setOpen(true);
+    setTitle('');
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+    setTitle('海外移住ちゃんねる');
   };
 
   return (
     <React.Fragment>
-      <Head position="relative">
-        <Toolbar>
-          <Link to="/" className={classes.textDecorationNone}>
-            <HeaderButton startIcon={<HomeIcon style={{ fontSize: 35 }}/>}>
-              ホーム
-            </HeaderButton>
-          </Link>
-          <Link to="/thread" className={classes.textDecorationNone}>
-            <HeaderButton startIcon={<CommentIcon style={{ fontSize: 35 }}/>}>
-              掲示板
-            </HeaderButton>
-          </Link>
-          <Link to="/chat" className={classes.textDecorationNone}>
-            <HeaderButton startIcon={<ForumIcon style={{ fontSize: 35 }}/>}>
-              チャット
-            </HeaderButton>
-          </Link>
-        </Toolbar>
-      </Head>
       <AppBar
         position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
+        className={clsx({
+          [classes.contentShift]: open,
         })}
       >
         <Toolbar>
@@ -166,44 +125,44 @@ const Header: React.FC =  () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Persistent drawer
-          </Typography>
+          <Link to="/" className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
+            {title}
+          </Link>
         </Toolbar>
       </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
         anchor="left"
+        transitionDuration={200}
         open={open}
         classes={{
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        <div className={classes.drawerHeader} style={{backgroundColor: '#3f51b5'}}>
+          <IconButton onClick={handleDrawerClose} style={{color: 'white', fontWeight: 'bold'}}>
+            <MenuIcon />
           </IconButton>
+          <Link to="/" className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
+            海外移住ちゃんねる
+          </Link>
         </div>
-        <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <Link to="/thread" className={classes.header}>
+            <BbsButton startIcon={<CommentIcon style={{ fontSize: 35 }}/>}>
+            掲示板
+            </BbsButton>
+          </Link>
+          <Link to="/chat" className={classes.header}>
+            <ChatButton startIcon={<ForumIcon style={{ fontSize: 35 }}/>}>
+              チャット
+            </ChatButton>
+          </Link>
         </List>
       </Drawer>
+
     </React.Fragment>
   );
 }
