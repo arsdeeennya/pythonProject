@@ -16,7 +16,7 @@ ReactDOM.render(
       <Header/>
         <Route exact path="/" component={Home} />
         <Route exact path="/thread" component={Thread} />
-        <Route exact path="/chat" component={Dev} />
+        <Route exact path="/chat" component={Chat} />
         <Route exact path="/dev" component={Dev} />
       <Footer/>
     </BrowserRouter>

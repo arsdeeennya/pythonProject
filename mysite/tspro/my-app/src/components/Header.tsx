@@ -88,7 +88,7 @@ const Header: React.FC =  () => {
       justifyContent: 'center',
     },
     contentShift: {
-      backgroundColor: 'red'
+      backgroundColor: 'white'
     },
   }));
 

@@ -92,7 +92,7 @@ const Main = styled.main`
 `
 
 const Thread: React.FC =  () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>();
+  const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormInputs>();
 
   const [posts, setPosts] = useState<Array<PostType>>([]);
   
@@ -105,6 +105,8 @@ const Thread: React.FC =  () => {
     })
     .then(res => {
       setPosts([...posts,res.data])
+      setValue('name', '')
+      setValue('message', '')
       e.target.reset();
     })
     .catch(res => {
