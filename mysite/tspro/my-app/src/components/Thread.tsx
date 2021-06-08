@@ -6,6 +6,8 @@ import CreateIcon from '@material-ui/icons/Create';
 import Container from '@material-ui/core/Container';
 import styled from 'styled-components';
 import { useForm, SubmitHandler } from "react-hook-form";
+import {openState} from '../App'
+import clsx from 'clsx';
 
 type FormInputs = {
   name: string,
@@ -55,6 +57,12 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
     },
+    contentShift: {
+      marginLeft: 240,
+      marginRight: 240,
+      "& div": {
+      }
+    },
   }),
 );
 
@@ -93,7 +101,7 @@ const Main = styled.main`
 
 const Thread: React.FC =  () => {
   const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormInputs>();
-
+  const openContext = React.useContext(openState);
   const [posts, setPosts] = useState<Array<PostType>>([]);
   
   const onSubmit: SubmitHandler<FormInputs> = (data: FormInputs, e: any) => {
@@ -124,8 +132,8 @@ const Thread: React.FC =  () => {
   return (
     <React.Fragment>
       <Main>
-        <Container>
-          <div className={classes.root}>
+        <Container className={clsx({[classes.contentShift]: openContext.open,})}>
+          <div className={classes.root} >
             {posts.map((post, index) => (
               <div key={index}>
                 <Post>

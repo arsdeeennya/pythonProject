@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import CommentIcon from '@material-ui/icons/Comment';
 import ForumIcon from '@material-ui/icons/Forum';
+import {openState} from '../App'
+import clsx from 'clsx';
 
 
 const Main = styled.main`
@@ -54,18 +56,23 @@ const Home: React.FC =  () => {
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(6),
     },
+    contentShift: {
+      marginLeft: 240,
+    },
   }));
 
   const classes = useStyles();
+  const openContext = React.useContext(openState);
   const cards= [{title: '掲示板', description: '気ままに', icon: <CommentIcon fontSize="large"/>, url: '/thread'},
-                {title: 'チャット', description: '気ままに', icon: <ForumIcon fontSize="large"/>, url: '/chat'}];
+                {title: 'チャット', description: '気ままに', icon: <ForumIcon fontSize="large"/>, url: '/chat'},
+                {title: 'チャット', description: '気ままに', icon: <ForumIcon fontSize="large"/>, url: '/chat'},];
   
 
   return (
     <React.Fragment>
       <Main>
         <div className={classes.heroContent}>
-          <Container maxWidth="lg">
+          <Container maxWidth="lg" className={clsx({[classes.contentShift]: openContext.open,})}>
             {/* End hero unit */}
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
               海外移住ちゃんねる

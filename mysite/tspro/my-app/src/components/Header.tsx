@@ -10,7 +10,7 @@ import styled from 'styled-components'
 import Modal from "react-modal";
 import ForumIcon from '@material-ui/icons/Forum';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import {openState} from '../App'
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -90,16 +90,16 @@ const Header: React.FC =  () => {
 
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  const openContext = React.useContext(openState);
   const [title, setTitle] = React.useState('海外移住ちゃんねる');
 
   const handleDrawerOpen = () => {
-    setOpen(true);
+    openContext.setOpen(true);
     setTitle('');
   };
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    openContext.setOpen(false);
     setTitle('海外移住ちゃんねる');
   };
 
@@ -108,7 +108,7 @@ const Header: React.FC =  () => {
       <AppBar
         position="fixed"
         className={clsx({
-          [classes.contentShift]: open,
+          [classes.contentShift]: openContext.open,
         })}
       >
         <Toolbar>
@@ -117,7 +117,7 @@ const Header: React.FC =  () => {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
+            className={clsx(classes.menuButton, openContext.open && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
@@ -129,10 +129,10 @@ const Header: React.FC =  () => {
 
       <Drawer
         className={classes.drawer}
-        variant="temporary"
+        variant="persistent"
         anchor="left"
         transitionDuration={300}
-        open={open}
+        open={openContext.open}
         classes={{
           paper: classes.drawerPaper,
         }}
