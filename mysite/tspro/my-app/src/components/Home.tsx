@@ -71,7 +71,7 @@ const Home: React.FC =  () => {
               海外移住ちゃんねる
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph style={{marginBottom: 100}}>
-              日本から飛び出して生活を送ってみたい<br/>そんな人たちが集まるコミィニティサイトです<br/>
+              日本から飛び出して暮らしてみたい<br/>そんな人たちが集まるコミィニティサイトです<br/>
             </Typography>
             <Grid container spacing={4}>
               {cards.map((card, index: number) => (

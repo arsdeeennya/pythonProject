@@ -129,9 +129,9 @@ const Header: React.FC =  () => {
 
       <Drawer
         className={classes.drawer}
-        variant="persistent"
+        variant="temporary"
         anchor="left"
-        transitionDuration={200}
+        transitionDuration={300}
         open={open}
         classes={{
           paper: classes.drawerPaper,
@@ -141,17 +141,17 @@ const Header: React.FC =  () => {
           <IconButton onClick={handleDrawerClose} style={{color: 'white', fontWeight: 'bold'}}>
             <MenuIcon />
           </IconButton>
-          <Link to="/" className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
+          <Link to="/" onClick={handleDrawerClose} className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
             海外移住ちゃんねる
           </Link>
         </div>
         <List>
-          <Link to="/thread" className={classes.header}>
+          <Link to="/thread" onClick={handleDrawerClose} className={classes.header}>
             <BbsButton startIcon={<CommentIcon style={{ fontSize: 35 }}/>}>
             掲示板
             </BbsButton>
           </Link>
-          <Link to="/chat" className={classes.header}>
+          <Link to="/chat" onClick={handleDrawerClose} className={classes.header}>
             <ChatButton startIcon={<ForumIcon style={{ fontSize: 35 }}/>}>
               チャット
             </ChatButton>
