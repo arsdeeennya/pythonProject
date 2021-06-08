@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CommentIcon from '@material-ui/icons/Comment';
 import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import grey from '@material-ui/core/colors/grey';
 import styled from 'styled-components'
@@ -15,13 +15,10 @@ import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 Modal.setAppElement("#root");
 
 const drawerWidth = 240;
-
 
 const BbsButton = styled(Button)`
   font-size: 20px;
@@ -88,7 +85,6 @@ const Header: React.FC =  () => {
       justifyContent: 'center',
     },
     contentShift: {
-      backgroundColor: 'white'
     },
   }));
 
@@ -133,9 +129,9 @@ const Header: React.FC =  () => {
 
       <Drawer
         className={classes.drawer}
-        variant="persistent"
+        variant="temporary"
         anchor="left"
-        transitionDuration={200}
+        transitionDuration={300}
         open={open}
         classes={{
           paper: classes.drawerPaper,
@@ -145,17 +141,17 @@ const Header: React.FC =  () => {
           <IconButton onClick={handleDrawerClose} style={{color: 'white', fontWeight: 'bold'}}>
             <MenuIcon />
           </IconButton>
-          <Link to="/" className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
+          <Link to="/" onClick={handleDrawerClose} className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
             海外移住ちゃんねる
           </Link>
         </div>
         <List>
-          <Link to="/thread" className={classes.header}>
+          <Link to="/thread" onClick={handleDrawerClose} className={classes.header}>
             <BbsButton startIcon={<CommentIcon style={{ fontSize: 35 }}/>}>
             掲示板
             </BbsButton>
           </Link>
-          <Link to="/chat" className={classes.header}>
+          <Link to="/chat" onClick={handleDrawerClose} className={classes.header}>
             <ChatButton startIcon={<ForumIcon style={{ fontSize: 35 }}/>}>
               チャット
             </ChatButton>
