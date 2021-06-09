@@ -57,8 +57,8 @@ const Home: React.FC =  () => {
   }));
 
   const classes = useStyles();
-  const cards= [{title: '掲示板', description: '気ままに', icon: <CommentIcon fontSize="large"/>, url: '/thread'},
-                {title: 'チャット', description: '気ままに', icon: <ForumIcon fontSize="large"/>, url: '/chat'}];
+  const cards= [{title: '掲示板', icon: <CommentIcon fontSize="large"/>, url: '/thread'},
+                {title: 'チャット', icon: <ForumIcon fontSize="large"/>, url: '/chat'}];
   
 
   return (

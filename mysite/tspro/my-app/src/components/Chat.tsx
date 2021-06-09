@@ -1,4 +1,3 @@
-import React from 'react'
 import ForumIcon from '@material-ui/icons/Forum';
 
 
