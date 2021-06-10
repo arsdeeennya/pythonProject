@@ -2,6 +2,7 @@ from django.db import models
 import socket
 import base64
 
+
 class Bbs(models.Model):
     name = models.CharField(max_length=20, default='森のくまさん')
     message = models.TextField()

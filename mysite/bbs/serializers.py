@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Bbs
 
+
 class BbsSerializer(serializers.ModelSerializer):
 
     class Meta:
