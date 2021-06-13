@@ -11,7 +11,7 @@ class Bbs(models.Model):
 
     def save(self, *args, **kwargs):
         ip = socket.gethostbyname(socket.gethostname())
-        self.ip = base64.b64encode(ip.encode('ascii')).decode('ascii')[:-2]
+        self.ip = base64.b64encode(ip.encode('ascii')).decode('ascii')[:-8]
         super().save(*args, **kwargs)
 
     def __str__(self):

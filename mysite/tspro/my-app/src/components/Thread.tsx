@@ -6,6 +6,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import Container from '@material-ui/core/Container';
 import styled from 'styled-components';
 import { useForm, SubmitHandler } from "react-hook-form";
+import Moment from 'react-moment';
 
 type FormInputs = {
   name: string,
@@ -104,7 +105,7 @@ const Thread: React.FC =  () => {
       headers: { "Content-Type": "application/json" },
     })
     .then(res => {
-      setPosts([...posts,res.data])
+      setPosts(prevPosts => [...prevPosts,res.data])
       setValue('name', '')
       setValue('message', '')
       e.target.reset();
@@ -134,8 +135,10 @@ const Thread: React.FC =  () => {
                   <span>
                     <b><a href="mailto:sage">{post.name}</a>  </b>
                   </span>
-                  <span>{post.created_at}  </span>
-                  <span>ID: {post.ip}</span>
+                  <Moment format="YYYY年MM月DD日 HH:mm:ss ">
+                    {post.created_at}
+                  </Moment>
+                  <span>ID:{post.ip}</span>
                 </div>
                 <Message>
                   <span>{post.message}</span>
