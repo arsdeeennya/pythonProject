@@ -104,7 +104,7 @@ const Thread: React.FC =  () => {
       headers: { "Content-Type": "application/json" },
     })
     .then(res => {
-      setPosts([...posts,res.data])
+      setPosts(prevPosts => [...prevPosts,res.data])
       setValue('name', '')
       setValue('message', '')
       e.target.reset();
