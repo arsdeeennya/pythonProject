@@ -133,7 +133,7 @@ const Thread: React.FC =  () => {
                 <div>
                   <span>{post.id}.  </span>
                   <span>
-                    <b><a href="mailto:sage">{post.name}</a>  </b>
+                    <b style={{color: '#3f51b5'}}>{post.name} </b>
                   </span>
                   <Moment format="YYYY年MM月DD日 HH:mm:ss ">
                     {post.created_at}
