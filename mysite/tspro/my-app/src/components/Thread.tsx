@@ -48,6 +48,10 @@ const Write = styled(Button)`
   font-size: 20px;
 `
 
+const Bold = styled.b`
+  color: #3f51b5;
+`
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     button: {
@@ -133,7 +137,7 @@ const Thread: React.FC =  () => {
                 <div>
                   <span>{post.id}.  </span>
                   <span>
-                    <b style={{color: '#3f51b5'}}>{post.name} </b>
+                    <Bold>{post.name} </Bold>
                   </span>
                   <Moment format="YYYY年MM月DD日 HH:mm:ss ">
                     {post.created_at}
