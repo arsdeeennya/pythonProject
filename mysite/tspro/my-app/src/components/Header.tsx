@@ -24,10 +24,17 @@ const BbsButton = styled(Button)`
   font-size: 20px;
   padding: 15px 103px 15px 36px;
 `
-
 const ChatButton = styled(Button)`
   font-size: 20px;
   padding: 15px 82px 15px 36px;
+`
+const Title = styled(Link)`
+  color: white;
+  fontWeight: bold;
+`
+const ButtonMS = styled(IconButton)`
+  color: white;
+  fontWeight: bold;
 `
 
 const Header: React.FC =  () => {
@@ -38,6 +45,8 @@ const Header: React.FC =  () => {
     },
     textDecorationNone: {
       textDecoration: 'none',
+      fontWeight: 'bold',
+      color: 'white'
     },
     header: {
       textDecoration: 'none',
@@ -83,6 +92,7 @@ const Header: React.FC =  () => {
       // necessary for content to be below app bar
       ...theme.mixins.toolbar,
       justifyContent: 'center',
+      backgroundColor: '#3f51b5',
     },
     contentShift: {
     },
@@ -121,9 +131,9 @@ const Header: React.FC =  () => {
           >
             <MenuIcon />
           </IconButton>
-          <Link to="/" className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
+          <Title to="/" className={classes.textDecorationNone}>
             {title}
-          </Link>
+          </Title>
         </Toolbar>
       </AppBar>
 
@@ -137,11 +147,11 @@ const Header: React.FC =  () => {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.drawerHeader} style={{backgroundColor: '#3f51b5'}}>
-          <IconButton onClick={handleDrawerClose} style={{color: 'white', fontWeight: 'bold'}}>
+        <div className={classes.drawerHeader}>
+          <ButtonMS onClick={handleDrawerClose}>
             <MenuIcon />
-          </IconButton>
-          <Link to="/" onClick={handleDrawerClose} className={classes.textDecorationNone} style={{color: 'white', fontWeight: 'bold'}}>
+          </ButtonMS>
+          <Link to="/" onClick={handleDrawerClose} className={classes.textDecorationNone}>
             海外移住ちゃんねる
           </Link>
         </div>
