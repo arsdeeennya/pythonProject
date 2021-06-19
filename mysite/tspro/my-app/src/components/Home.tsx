@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import CommentIcon from '@material-ui/icons/Comment';
 import ForumIcon from '@material-ui/icons/Forum';
+
 const Main = styled.main`
   background-color: #f2f3f7;
   padding: 70px 0px 50px;
@@ -18,6 +19,22 @@ const CC = styled(CardContent)`
     transform: translate(0, 3px);
   }
 `
+const Description = styled(Typography)`
+  margin-bottom: 100px;
+`
+const LinkMS = styled(Link)`
+  text-decoration: none;
+`
+const CardMS = styled(Card)`
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 50px;
+`
+const IconTitle = styled(Typography)`
+  text-align: center;
+  font-size: 27px;
+`
+
 const Home: React.FC =  () => {
   const useStyles = makeStyles((theme) => ({
     icon: {
@@ -63,21 +80,21 @@ const Home: React.FC =  () => {
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
               海外移住ちゃんねる
             </Typography>
-            <Typography variant="h5" align="center" color="textSecondary" paragraph style={{marginBottom: 100}}>
+            <Description variant="h5" align="center" color="textSecondary" paragraph>
               日本から飛び出して暮らしてみたい<br/>そんな人たちが集まるコミィニティサイトです<br/>
-            </Typography>
+            </Description>
             <Grid container spacing={4}>
               {cards.map((card, index: number) => (
                   <Grid item key={index} xs={12} sm={6} md={4}>
-                    <Link to={card.url} style={{textDecoration: 'none'}}>
-                      <Card className={classes.card} style={{backgroundColor: '#3f51b5', color: 'white', borderRadius: 50}}>
-                        <CC className={classes.cardContent} style={{ padding: 15}}>
-                          <Typography variant="h5"　style={{textAlign: 'center', fontSize: 27}}>
+                    <LinkMS to={card.url}>
+                      <CardMS className={classes.card}>
+                        <CC className={classes.cardContent} style={{padding: 15}}>
+                          <IconTitle variant="h5">
                             {card.icon}{card.title}
-                          </Typography>
+                          </IconTitle>
                         </CC>
-                      </Card>
-                    </Link>
+                      </CardMS>
+                    </LinkMS>
                   </Grid>
               ))}
             </Grid>
