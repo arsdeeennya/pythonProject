@@ -58,10 +58,6 @@ const Home: React.FC =  () => {
     cardMedia: {
       paddingTop: '56.25%', // 16:9
     },
-    cardContent: {
-      "&:hover": {
-      },
-    },
     footer: {
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(6),
@@ -88,7 +84,7 @@ const Home: React.FC =  () => {
                   <Grid item key={index} xs={12} sm={6} md={4}>
                     <LinkMS to={card.url}>
                       <CardMS className={classes.card}>
-                        <CC className={classes.cardContent} style={{padding: 15}}>
+                        <CC style={{padding: 15}}>
                           <IconTitle variant="h5">
                             {card.icon}{card.title}
                           </IconTitle>
