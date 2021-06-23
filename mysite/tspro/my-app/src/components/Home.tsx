@@ -72,7 +72,6 @@ const Home: React.FC =  () => {
       <Main>
         <div className={classes.heroContent}>
           <Container maxWidth="lg">
-            {/* End hero unit */}
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
               海外移住ちゃんねる
             </Typography>
