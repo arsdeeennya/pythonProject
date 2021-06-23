@@ -69,7 +69,6 @@ const Post = styled.div`
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 5px;
-  // display: inline-block;
   border-style: none solid solid none;
   border-color: #ddd;
 `
