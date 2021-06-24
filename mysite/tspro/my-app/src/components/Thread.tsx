@@ -102,7 +102,7 @@ const Thread: React.FC =  () => {
   
   const onSubmit: SubmitHandler<FormInputs> = (data: FormInputs, e: any) => {
     if(data.name === ''){
-      data.name = '森のくまさん'
+      data.name = '名無しさん'
     }
     axios.post('http://127.0.0.1:8000/bbs/index/', data,{
       headers: { "Content-Type": "application/json" },
