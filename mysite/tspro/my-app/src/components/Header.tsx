@@ -89,7 +89,6 @@ const Header: React.FC =  () => {
       display: 'flex',
       alignItems: 'center',
       padding: theme.spacing(0, 1),
-      // necessary for content to be below app bar
       ...theme.mixins.toolbar,
       justifyContent: 'center',
       backgroundColor: '#3f51b5',
