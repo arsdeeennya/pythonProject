@@ -3,7 +3,6 @@ from .models import Bbs
 
 
 class BbsSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Bbs
         fields = ['id', 'name', 'message', 'ip', 'created_at']
