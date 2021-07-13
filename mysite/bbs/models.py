@@ -4,7 +4,7 @@ import base64
 
 
 class Bbs(models.Model):
-    name = models.CharField(max_length=20, default='名無しさん')
+    name = models.CharField(max_length=20, default='名無しsさん')
     message = models.TextField()
     ip = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
